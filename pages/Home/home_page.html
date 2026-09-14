@@ -14,7 +14,7 @@
     <!-- ============ NAVBAR ============ -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">
+            <a href="#home" class="logo">
                 <img src="../../images/restaurant.png" alt="logo">
                 <span>French Restaurant</span>
             </a>
@@ -23,13 +23,11 @@
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#menu">Menu</a></li>
+                <li><a href="#booking">Booking</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
-            <div class="nav-actions">
-                <a href="../Auth/login.html" class="btn-nav btn-outline">Login</a>
-                <a href="../Auth/signUp.html" class="btn-nav btn-solid">Sign Up</a>
-            </div>
+
 
             <div class="menu-toggle" id="menuToggle">
                 <span></span><span></span><span></span>
@@ -44,10 +42,7 @@
             <p class="hero-tag">Welcome to</p>
             <h1>French Restaurant</h1>
             <p class="hero-sub">We're the best restaurant in town — taste the authentic French cuisine.</p>
-            <div class="hero-buttons">
-                <a href="#menu" class="btn btn-primary">View Our Menu</a>
-                <a href="#contact" class="btn btn-ghost">Book a Table</a>
-            </div>
+
         </div>
     </section>
 
@@ -71,7 +66,6 @@
                 <p class="about-text">
                     At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles ma quande lingues coalesce li grammatica.
                 </p>
-                <a href="#" class="btn btn-primary">About Us</a>
             </div>
         </div>
     </section>
@@ -126,6 +120,48 @@
         </div>
     </section>
 
+    <!-- ============ BOOKING (TABLE + FOOD) ============ -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <p class="section-tag center">Booking</p>
+            <h2 class="section-title">Reserve in Seconds</h2>
+
+            <div class="booking-grid">
+
+                <!-- Book a Table -->
+                <div class="booking-card">
+                    <div class="booking-icon">🍽️</div>
+                    <h3>Book a Table</h3>
+                    <p>
+                        Reserve your table and enjoy an unforgettable evening with our authentic French cuisine.
+                    </p>
+                    <ul class="booking-features">
+                        <li>✓ Choose your date &amp; time</li>
+                        <li>✓ Select table preference</li>
+                        <li>✓ Confirmation by email &amp; WhatsApp</li>
+                    </ul>
+                    <a href="../Book/book_table.html" class="btn btn-primary">Reserve a Table</a>
+                </div>
+
+                <!-- Order Food -->
+                <div class="booking-card">
+                    <div class="booking-icon">🥡</div>
+                    <h3>Order Food</h3>
+                    <p>
+                        Pick your favourite dishes and pick them up fresh &amp; hot at your chosen time.
+                    </p>
+                    <ul class="booking-features">
+                        <li>✓ Choose from full menu</li>
+                        <li>✓ Set your pickup time</li>
+                        <li>✓ Confirmation by email &amp; WhatsApp</li>
+                    </ul>
+                    <a href="../Book/book_food.html" class="btn btn-primary">Order Food</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- ============ TESTIMONIALS ============ -->
     <section class="testimonials">
         <div class="container">
@@ -172,10 +208,11 @@
     <!-- ============ CONTACT ============ -->
     <section class="contact" id="contact">
         <div class="container contact-grid">
+
             <div class="contact-info">
-                <p class="section-tag">Reservation</p>
-                <h2>Book a Table</h2>
-                <p>Reserve your table and enjoy an unforgettable evening with us.</p>
+                <p class="section-tag">Contact Us</p>
+                <h2>Visit or Call Us</h2>
+                <p>We're always happy to hear from you.</p>
 
                 <ul class="info-list">
                     <li><strong>📍 Address:</strong> 123 Rue de Paris, Downtown</li>
@@ -185,14 +222,17 @@
                 </ul>
             </div>
 
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <input type="date" required>
-                <textarea rows="4" placeholder="Special Requests..."></textarea>
-                <button type="submit" class="btn btn-primary">Reserve Now</button>
+            <form class="contact-form" id="contactForm">
+                <input type="text" id="contactName" placeholder="Your Name" required>
+                <input type="email" id="contactEmail" placeholder="Your Email" required>
+                <textarea id="contactMessage" rows="5" placeholder="Your Message..." required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+
+                <p class="form-success" id="formSuccess">
+                    ✓ Message sent! We'll get back to you soon.
+                </p>
             </form>
+
         </div>
     </section>
 
@@ -210,7 +250,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#menu">Menu</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#booking">Booking</a></li>
                 </ul>
             </div>
 
@@ -235,7 +275,7 @@
         </div>
     </footer>
 
-    <script src="home_page.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 
 </html>

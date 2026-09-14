@@ -1,81 +1,105 @@
-/* ============ GALLERY LIGHTBOX ============ */
 document.addEventListener('DOMContentLoaded', () => {
 
-    const items = document.querySelectorAll('.g-item');
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lbImg');
-    const lbTitle = document.getElementById('lbTitle');
-    const lbDesc = document.getElementById('lbDesc');
-    const lbClose = document.getElementById('lbClose');
-    const lbPrev = document.getElementById('lbPrev');
-    const lbNext = document.getElementById('lbNext');
+    /* ============================================
+       MOBILE MENU TOGGLE
+    ============================================ */
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
 
-    let currentIndex = 0;
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-    /* فتح الـ lightbox */
-    function openLightbox(index) {
-        const item = items[index];
-        lbImg.src = item.dataset.img;
-        lbTitle.textContent = item.dataset.title;
-        lbDesc.textContent = item.dataset.desc;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        currentIndex = index;
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
     }
 
-    /* إغلاق */
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
+    /* ============================================
+       NAVBAR SHADOW ON SCROLL
+    ============================================ */
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.padding = '10px 0';
+                navbar.style.background = 'rgba(26, 15, 8, 0.98)';
+            } else {
+                navbar.style.padding = '18px 0';
+                navbar.style.background = 'rgba(26, 15, 8, 0.85)';
+            }
+        });
     }
 
-    /* التالي */
-    function showNext() {
-        currentIndex = (currentIndex + 1) % items.length;
-        openLightbox(currentIndex);
+    /* ============================================
+       ACTIVE LINK ON SCROLL
+    ============================================ */
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    function updateActiveLink() {
+        let current = '';
+        const scrollPos = window.scrollY + 150;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        // لو مفيش قسم محدد (فوق خالص) خليها Home
+        if (!current) current = 'home';
+
+        navItems.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
     }
 
-    /* السابق */
-    function showPrev() {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        openLightbox(currentIndex);
+    window.addEventListener('scroll', updateActiveLink);
+    window.addEventListener('load', updateActiveLink);
+
+    /* ============================================
+       SMOOTH SCROLL FOR ANCHOR LINKS
+    ============================================ */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    /* ============================================
+       CONTACT FORM
+    ============================================ */
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    if (contactForm && formSuccess) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            formSuccess.classList.add('show');
+            contactForm.reset();
+
+            setTimeout(() => {
+                formSuccess.classList.remove('show');
+            }, 4000);
+        });
     }
-
-    /* ربط الأحداث على كل صورة */
-    items.forEach((item, index) => {
-        item.addEventListener('click', () => openLightbox(index));
-    });
-
-    /* أزرار التحكم */
-    lbClose.addEventListener('click', closeLightbox);
-    lbNext.addEventListener('click', showNext);
-    lbPrev.addEventListener('click', showPrev);
-
-    /* الضغط على الخلفية يقفل */
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
-
-    /* أسهم الكيبورد */
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') showNext();
-        if (e.key === 'ArrowLeft') showPrev();
-    });
-
-    /* Swipe على الموبايل */
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    lightbox.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-
-    lightbox.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchEndX < touchStartX - 50) showNext();
-        if (touchEndX > touchStartX + 50) showPrev();
-    });
 
 });

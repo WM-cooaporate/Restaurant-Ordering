@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/book.css">
+    <title>Order Your Food | French Restaurant</title>
+</head>
+
+<body>
+
+    <!-- ============ NAVBAR ============ -->
+    <div class="nav-bar">
+        <a href="../Home/home_page.html" class="logo">
+            <img src="../../images/restaurant.png" alt="logo">
+            <span>French Restaurant</span>
+        </a>
+        <a href="../Home/home_page.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <!-- ============ PAGE HEADER ============ -->
+    <div class="page-header">
+        <h1>Order Your Food</h1>
+        <p>Choose your dishes and pick them up fresh &amp; hot</p>
+    </div>
+
+    <!-- ============ FORM ============ -->
+    <div class="form-wrapper">
+        <form id="orderForm" novalidate>
+
+            <!-- ============ STEP 1: PERSONAL INFO ============ -->
+            <fieldset class="form-section">
+                <legend>1. Personal Information</legend>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" maxlength="50" required>
+                        <span class="error-msg" id="errName"></span>
+                    </div>
+                </div>
+
+                <div class="form-row two-cols">
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="01XXXXXXXXX" maxlength="11" required>
+                        <span class="error-msg" id="errPhone"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" maxlength="50" required>
+                        <span class="error-msg" id="errEmail"></span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- ============ STEP 2: CHOOSE DISHES ============ -->
+            <fieldset class="form-section">
+                <legend>2. Choose Your Dishes</legend>
+
+                <div class="dishes-grid" id="dishesGrid">
+
+                    <div class="dish-card" data-id="1" data-name="Chicken Drumsticks" data-price="24">
+                        <img src="../../images/rigel-food-sec-2-img1-200x200.jpg" alt="Chicken Drumsticks">
+                        <h4>Chicken Drumsticks</h4>
+                        <p class="dish-price">$24.00</p>
+                        <button type="button" class="btn-add" data-id="1">Add +</button>
+                    </div>
+
+                    <div class="dish-card" data-id="2" data-name="Grilled Steak" data-price="32">
+                        <img src="../../images/rigel-food-sec-2-img3-200x200.jpg" alt="Grilled Steak">
+                        <h4>Grilled Steak</h4>
+                        <p class="dish-price">$32.00</p>
+                        <button type="button" class="btn-add" data-id="2">Add +</button>
+                    </div>
+
+                    <div class="dish-card" data-id="3" data-name="Pasta Alfredo" data-price="18">
+                        <img src="../../images/rigel-food-sec-2-img4-200x200.jpg" alt="Pasta Alfredo">
+                        <h4>Pasta Alfredo</h4>
+                        <p class="dish-price">$18.00</p>
+                        <button type="button" class="btn-add" data-id="3">Add +</button>
+                    </div>
+
+                    <div class="dish-card" data-id="4" data-name="Seafood Platter" data-price="45">
+                        <img src="../../images/rigel-food-sec-2-img5-200x200.jpg" alt="Seafood Platter">
+                        <h4>Seafood Platter</h4>
+                        <p class="dish-price">$45.00</p>
+                        <button type="button" class="btn-add" data-id="4">Add +</button>
+                    </div>
+
+                </div>
+                <span class="error-msg" id="errDishes"></span>
+            </fieldset>
+
+            <!-- ============ STEP 3: YOUR ORDER SUMMARY ============ -->
+            <fieldset class="form-section" id="orderSummarySection" style="display:none;">
+                <legend>3. Your Order</legend>
+
+                <div class="order-list" id="orderList">
+                    <!-- filled by JS -->
+                </div>
+
+                <div class="order-total">
+                    <span>Total:</span>
+                    <strong id="orderTotal">$0.00</strong>
+                </div>
+            </fieldset>
+
+            <!-- ============ STEP 4: PICKUP TIME ============ -->
+            <fieldset class="form-section">
+                <legend>4. Pickup Time</legend>
+
+                <div class="form-row two-cols">
+                    <div class="form-group">
+                        <label for="date">Date *</label>
+                        <input type="date" id="date" name="date" required>
+                        <span class="error-msg" id="errDate"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Time *</label>
+                        <select id="time" name="time" required>
+                            <option value="">Select time</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                            <option value="19:00">7:00 PM</option>
+                            <option value="20:00">8:00 PM</option>
+                            <option value="21:00">9:00 PM</option>
+                            <option value="22:00">10:00 PM</option>
+                        </select>
+                        <span class="error-msg" id="errTime"></span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- ============ STEP 5: EXTRAS ============ -->
+            <fieldset class="form-section">
+                <legend>5. Extras</legend>
+
+                <div class="form-row two-cols">
+                    <div class="form-group">
+                        <label for="occasion">Occasion</label>
+                        <select id="occasion" name="occasion">
+                            <option value="none">None</option>
+                            <option value="birthday">Birthday 🎂</option>
+                            <option value="anniversary">Anniversary 💕</option>
+                            <option value="business">Business Meeting 💼</option>
+                            <option value="date">Date Night 🌹</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="promo">Promo Code</label>
+                        <input type="text" id="promo" name="promo" placeholder="Optional" maxlength="15">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Special Requests</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Allergies, dietary restrictions..." maxlength="300"></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the terms and cancellation policy *</label>
+                    <span class="error-msg" id="errTerms"></span>
+                </div>
+            </fieldset>
+
+            <!-- Submit -->
+            <button type="submit" class="btn-submit" id="submitBtn">
+                Confirm Order
+            </button>
+
+            <p class="form-note">
+                📧 You'll receive a confirmation email &amp; WhatsApp message shortly.
+            </p>
+        </form>
+    </div>
+
+    <!-- ============ SUCCESS MODAL ============ -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-icon">✓</div>
+            <h2>Order Confirmed!</h2>
+            <p>Your food will be ready for pickup.</p>
+
+            <div class="booking-summary" id="bookingSummary"></div>
+
+            <div class="modal-actions">
+                <a href="../Home/home_page.html" class="btn-modal btn-home">Back to Home</a>
+                <button class="btn-modal btn-print" onclick="window.print()">Print</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/book.js"></script>
+</body>
+
+</html>
