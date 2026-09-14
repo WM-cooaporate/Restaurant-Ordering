@@ -1,0 +1,243 @@
+/* ============ Reset ============ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', 'Segoe UI', serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+
+/* ============ Background ============ */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* خلفية داكنة + صورة أكل (غيّر الصورة حسب المتاح عندك) */
+    background: linear-gradient(rgba(20, 10, 5, 0.75), rgba(20, 10, 5, 0.85)), url('images/bg.jpg') center/cover no-repeat fixed;
+}
+
+
+/* ============ Login Card ============ */
+
+.form_body {
+    width: 100%;
+    max-width: 430px;
+    background: #fffaf3;
+    /* لون كريمي فاتح يناسب جو المطعم */
+    padding: 45px 40px 35px;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+    border-top: 6px solid #c9a227;
+    /* خط ذهبي مميز */
+    animation: fadeIn 0.6s ease;
+}
+
+
+/* خط ذهبي رفيع تحت الخط الأساسي */
+
+.form_body::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #e67e22;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============ Title ============ */
+
+.form_body h1 {
+    text-align: center;
+    color: #3b2416;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.form_body h1::after {
+    content: '❖';
+    display: block;
+    color: #c9a227;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+
+/* ============ Table (Form) ============ */
+
+.form_body table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 18px;
+    margin-top: 10px;
+}
+
+.form_body table td {
+    vertical-align: middle;
+}
+
+
+/* Labels */
+
+.form_body label {
+    color: #3b2416;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-right: 15px;
+    white-space: nowrap;
+}
+
+
+/* Inputs */
+
+.form_body input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #d9c7a7;
+    border-radius: 4px;
+    background: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    color: #3b2416;
+    transition: all 0.3s ease;
+}
+
+.form_body input:focus {
+    border-color: #c9a227;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.15);
+    background: #fffef9;
+}
+
+.form_body input::placeholder {
+    color: #b8a98e;
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+/* ============ Buttons ============ */
+
+.form_body button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 14px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* Login (Primary - ذهبي) */
+
+.form_body button[type="submit"] {
+    background: linear-gradient(135deg, #c9a227, #a37e18);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(201, 162, 39, 0.4);
+}
+
+.form_body button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(201, 162, 39, 0.55);
+    background: linear-gradient(135deg, #a37e18, #c9a227);
+}
+
+
+/* SignUp (Secondary - outlined) */
+
+.form_body button:nth-of-type(2) {
+    background: transparent;
+    color: #c9a227;
+    border: 2px solid #c9a227;
+}
+
+.form_body button:nth-of-type(2):hover {
+    background: #c9a227;
+    color: #fff;
+}
+
+
+/* Forget Password (Ghost / link style) */
+
+.form_body button:nth-of-type(3) {
+    background: transparent;
+    color: #8a7a5c;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+    text-transform: none;
+    text-decoration: underline;
+    padding: 6px;
+}
+
+.form_body button:nth-of-type(3):hover {
+    color: #c9a227;
+    background: transparent;
+}
+
+
+/* ============ Responsive ============ */
+
+@media (max-width: 480px) {
+    .form_body {
+        padding: 35px 22px 28px;
+    }
+    .form_body h1 {
+        font-size: 24px;
+    }
+    /* تحويل الجدول لعرض عمودي على الموبايل */
+    .form_body table,
+    .form_body table tbody,
+    .form_body table tr,
+    .form_body table td {
+        display: block;
+        width: 100%;
+    }
+    .form_body table tr {
+        margin-bottom: 18px;
+    }
+    .form_body label {
+        display: block;
+        margin-bottom: 8px;
+        padding-right: 0;
+    }
+    .form_body table {
+        border-spacing: 0;
+    }
+}

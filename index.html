@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>French Restaurant</title>
+</head>
+
+<body>
+
+    <!-- ============ NAVBAR + HERO ============ -->
+    <div class="home">
+        <div class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <img src="images/restaurant.png" alt="logo">
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#chef">About</a></li>
+                        <li><a href="#meals">Menu</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <div class="clr"></div>
+                    </ul>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+
+        <!-- ============ HERO CAPTION ============ -->
+        <div class="caption">
+            <img src="images/restaurant.png" alt="">
+            <h1>French Restaurant</h1>
+            <p>We're the best restaurant in town.</p>
+            <button class="btn1" onclick="window.location.href='pages/Auth/login.html'">Login</button>
+            <button class="btn2" onclick="window.location.href='pages/Auth/signUp.html'">SignUp</button>
+        </div>
+    </div>
+
+    <!-- ============ OUR STORY ============ -->
+    <div class="chef" id="chef">
+        <div class="chef-img">
+            <img src="images/chef-2.jpg" alt="chef">
+        </div>
+        <div class="chef-info">
+            <h3>Our Story</h3>
+            <p>
+                mnicos directe al desirabilite de un nov lingua franca. interfaces without scalable users. Energistically administrate intermandated materials without leveraged technologies. On refusa continuar payar custosi traductores. At solmen va esser necessi far
+                uniform grammatica, pronunciation e plu sommun paroles ma quande lingues coalesce li grammatica.
+            </p>
+            <button>About Us</button>
+        </div>
+        <div class="clr"></div>
+    </div>
+
+    <div class="layer"></div>
+
+    <!-- ============ MEALS ============ -->
+    <div class="meals" id="meals">
+        <div class="meal">
+            <img src="images/rigel-food-sec-2-img1-200x200.jpg" alt="food">
+            <h3>Chicken Drumsticks</h3>
+            <div class="brdr"></div>
+            <p>Objectively product front end action items and high standards in manufactured products.</p>
+        </div>
+        <div class="meal">
+            <img src="images/rigel-food-sec-2-img3-200x200.jpg" alt="food">
+            <h3>Grilled Steak</h3>
+            <div class="brdr"></div>
+            <p>Objectively product front end action items and high standards in manufactured products.</p>
+        </div>
+        <div class="meal">
+            <img src="images/rigel-food-sec-2-img4-200x200.jpg" alt="food">
+            <h3>Pasta Alfredo</h3>
+            <div class="brdr"></div>
+            <p>Objectively product front end action items and high standards in manufactured products.</p>
+        </div>
+        <div class="meal">
+            <img src="images/rigel-food-sec-2-img5-200x200.jpg" alt="food">
+            <h3>Seafood Platter</h3>
+            <div class="brdr"></div>
+            <p>Objectively product front end action items and high standards in manufactured products.</p>
+        </div>
+        <div class="clr"></div>
+    </div>
+
+    <!-- ============ GALLERY ============ -->
+    <div class="gallery" id="gallery">
+        <div class="container">
+
+            <h2 class="gallery-title">Our Gallery</h2>
+            <p class="gallery-sub">A glimpse of our restaurant &amp; dishes</p>
+
+            <div class="gallery-grid">
+
+                <div class="g-item g-tall" data-img="images/chef-2.jpg" data-title="Our Master Chef" data-desc="Meet our head chef with over 25 years of experience in French cuisine.">
+                    <img src="images/chef-2.jpg" alt="chef">
+                    <div class="g-overlay"><span>+</span></div>
+                </div>
+
+                <div class="g-item" data-img="images/rigel-food-sec-2-img1-200x200.jpg" data-title="Chicken Drumsticks" data-desc="Tender chicken drumsticks marinated with French herbs and spices.">
+                    <img src="images/rigel-food-sec-2-img1-200x200.jpg" alt="dish">
+                    <div class="g-overlay"><span>+</span></div>
+                </div>
+
+                <div class="g-item" data-img="images/rigel-food-sec-2-img3-200x200.jpg" data-title="Grilled Steak" data-desc="Premium cut steak grilled to perfection, served with red wine sauce.">
+                    <img src="images/rigel-food-sec-2-img3-200x200.jpg" alt="dish">
+                    <div class="g-overlay"><span>+</span></div>
+                </div>
+
+                <div class="g-item g-wide" data-img="images/bg.jpg" data-title="Our Restaurant" data-desc="A warm and elegant atmosphere that makes every visit unforgettable.">
+                    <img src="images/bg.jpg" alt="restaurant">
+                    <div class="g-overlay"><span>+</span></div>
+                </div>
+
+                <div class="g-item" data-img="images/rigel-food-sec-2-img4-200x200.jpg" data-title="Pasta Alfredo" data-desc="Creamy Alfredo pasta with parmesan cheese and fresh herbs.">
+                    <img src="images/rigel-food-sec-2-img4-200x200.jpg" alt="dish">
+                    <div class="g-overlay"><span>+</span></div>
+                </div>
+
+                <div class="g-item" data-img="images/rigel-food-sec-2-img5-200x200.jpg" data-title="Seafood Platter" data-desc="Fresh seafood selection served with lemon butter sauce.">
+                    <img src="images/rigel-food-sec-2-img5-200x200.jpg" alt="dish">
+                    <div class="g-overlay"><span>+</span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ LIGHTBOX ============ -->
+    <div class="lightbox" id="lightbox">
+        <span class="lb-close" id="lbClose">&times;</span>
+        <span class="lb-prev" id="lbPrev">&#10094;</span>
+        <span class="lb-next" id="lbNext">&#10095;</span>
+
+        <div class="lb-content">
+            <img id="lbImg" src="" alt="">
+            <div class="lb-info">
+                <h3 id="lbTitle"></h3>
+                <p id="lbDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
